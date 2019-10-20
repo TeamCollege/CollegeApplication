@@ -13,7 +13,7 @@ public interface AdminDAO
 	public boolean storeStudentDetailsDAO(List<Student> student)throws SQLException;
 	public boolean updateStudentDetailsDAO(int id, String firstName)throws ClassNotFoundException, SQLException;
 	public boolean deleteStudentDetailsDAO(String studentId)throws ClassNotFoundException, SQLException;
-	public boolean viewStudentDetailsDAO(int studentId2)throws ClassNotFoundException, SQLException;
+	public List<Student> viewStudentDetailsDAO(int studentId2)throws ClassNotFoundException, SQLException;
 	public boolean storeFacultyDetailsDAO(Faculty faculty)throws ClassNotFoundException, SQLException;
 	public boolean updateFacultyDetailsDAO(String phoneNumber , int id)throws ClassNotFoundException, SQLException;
 	public boolean deleteFacultyDetailsDAO(int facultyId)throws ClassNotFoundException, SQLException;

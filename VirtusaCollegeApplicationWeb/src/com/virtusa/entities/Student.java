@@ -7,6 +7,7 @@ public class Student extends User
 	private double interPercentage;
 	private String courseName;
 	private String departmentName;
+	private String aadharNUmber;
 //12.10.19
 	private ClassSchedule classSchedule;
 	//private ExamSchedule examSchedule;
@@ -72,6 +73,14 @@ public class Student extends User
 
 	public void setClassSchedule(ClassSchedule classSchedule) {
 		this.classSchedule = classSchedule;
+	}
+
+	public String getAadharNUmber() {
+		return aadharNUmber;
+	}
+
+	public void setAadharNUmber(String aadharNUmber) {
+		this.aadharNUmber = aadharNUmber;
 	}
 
 	

@@ -7,6 +7,7 @@ import java.util.Scanner;
 //import org.apache.log4j.Logger;
 
 import com.virtusa.controller.AdminController;
+import com.virtusa.entities.Student;
 import com.virtusa.exception.InvalidUserChoiceException;
 import com.virtusa.exception.ValidationException;
 import com.virtusa.model.FacultyModel;
@@ -159,7 +160,12 @@ public class AdminView
 						catch(Exception w) { 
 							}
 					}while(validStudentId2);
+					Student student = new Student();
 					adminController.viewStudentController(studentId2);
+					System.out.println("=====================================================================================================================");
+					System.out.format("%10s%15s%25s%45s\n","student_id","first_name","last_name","DOB","email_id","phone_number","tenth_percentage","inter_percentage","department_name","aadhar_number");
+					System.out.println("=====================================================================================================================");
+					//System.out.format("%9s%12d%45s%30s\n", student.getStudentId(), staffMeeting.getStaffMeetingModel().getStaffMeetingAgenda(),staffMeeting.getStaffMeetingModel().getLocation());
 					break;
 			
 			default:

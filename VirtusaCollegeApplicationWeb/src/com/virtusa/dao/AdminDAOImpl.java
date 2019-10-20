@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -109,16 +110,31 @@ public class AdminDAOImpl implements AdminDAO
 			return false;
 	}
 	@Override
-	public boolean viewStudentDetailsDAO(int studentId2) throws ClassNotFoundException, SQLException
+	public List<Student> viewStudentDetailsDAO(int studentId2) throws ClassNotFoundException, SQLException
 	{
+		Student student = new Student();
+		List<Student> studentList = new ArrayList<Student>();
 		Connection connection=ConnectionManager.openConnection();
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("select * from students where student_id=?");
 		preparedStatement.setInt(1, studentId2);
 		ResultSet resultSet =  preparedStatement.executeQuery();
-		
-		
-		return false;
+		while(resultSet.next())
+		{
+			student.setStudentId(resultSet.getInt("student_id"));
+			student.setFirstName(resultSet.getString("first_name"));
+			student.setLastName(resultSet.getString("last_name"));
+			//student.setDateOfBirth(resultSet.getDate("DOB"));
+			student.setEmailAddress(resultSet.getString("email_id"));
+			student.setPhoneNumber(resultSet.getString("phone_number"));
+			student.setTenthPercentage(resultSet.getDouble("tenth_percentage"));
+			student.setInterPercentage(resultSet.getDouble("inter_percentage"));
+			student.setDepartmentName(resultSet.getString("department_name"));
+			student.setAadharNUmber(resultSet.getString("aadhar_number"));
+			studentList.add(student);
+			
+		}
+		return studentList;
 	}
 	
        
