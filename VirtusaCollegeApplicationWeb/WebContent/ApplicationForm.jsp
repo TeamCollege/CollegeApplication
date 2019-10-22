@@ -10,7 +10,7 @@
 </head>
 <body>
 <div align="center">
-<form method="post" action="loadadmissionsform">
+<form method="post" action="ApplicantControllerServlet">
 <table>
 
 <tr>
@@ -23,10 +23,10 @@
 <td><input type="text" name="lastName"/>&nbsp;<label style="color:red"><c:out value="${lastnameerror}"/></label></td>
 </tr>
 
-<tr>
+<tr> 
 <td><label for="email">Email:</label></td>
 <td><input type="email" name="email"/>&nbsp;<label style="color:red"><c:out value="${emailerror}"/></label><label style="color:red"><c:out value="${emailexisterror}"/></label></td>
-</tr>
+</tr> 
 
 <tr>
 <td><label for="phoneNumber">Phone Number:</label></td>
@@ -54,17 +54,12 @@
 </tr>
 
 <tr>
-<td><label for="dateOfBirth">Date Of Birth:</label></td>
-<td><input type="date" name="dateOfBirth"/></td>
-</tr>
-
-<tr>
 <td><label for="departmentName">Department Name:</label></td>
 <td>
 <select name="departmentName">
-<option value="cse"><c:out value="Computer Science and Engineering"/></option>
-<option value="ece"><c:out value="Electronics and Communication Engineering"/></option>
-<option value="eee"><c:out value="Electrical and Electronical Engineering"/></option>
+<option value="cse">Computer Science and Engineering</option>
+<option value="ece">Electronics and Communication Engineering</option>
+<option value="eee">Electrical and Electronical Engineering</option>
 </select>
 </td>
 </tr>

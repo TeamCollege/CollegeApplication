@@ -28,7 +28,7 @@ public boolean validate(ApplicantModel model) {
 			result=true;
 		return result;
 	}        
-	
+	 
 	public boolean emailExists(String email) {
 		ApplicantService applicantService=FactoryApplicantService.createApplicantService();
 		List<ApplicantModel> applicantModelList=applicantService.retrieveApplicants();

@@ -53,8 +53,8 @@ public class AdminServlet extends HttpServlet {
 			String date = request.getParameter("event_date");
 			String location = request.getParameter("location");
 			//adminService=factoryAdminService.createAdminService();
-			 boolean result = factoryAdminService.createAdminService().addEventsService(eventName, date, location);
-			 System.out.println(result);
+			boolean result = factoryAdminService.createAdminService().addEventsService(eventName, date, location);
+			System.out.println(result);
 			 if(result)
 			 {
 				 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Successful.html");

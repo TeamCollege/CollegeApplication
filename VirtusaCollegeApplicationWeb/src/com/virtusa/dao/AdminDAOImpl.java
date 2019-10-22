@@ -207,7 +207,7 @@ public class AdminDAOImpl implements AdminDAO
 				Connection connection=ConnectionManager.openConnection();
 
 		PreparedStatement preparedStatement=
-				connection.prepareStatement("insert into  events values(NULL,?,?,?)");
+				connection.prepareStatement("insert into  events values(?,?,?)");
 		//preparedStatement.setInt(1, id);
 		preparedStatement.setString(1, name);
 	preparedStatement.setString(2, date);

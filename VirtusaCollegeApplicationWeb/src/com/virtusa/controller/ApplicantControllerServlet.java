@@ -32,7 +32,7 @@ public class ApplicantControllerServlet extends HttpServlet {
     public ApplicantControllerServlet() {
     	super();
     }
-    
+     
     @Override
     public void init(ServletConfig config) throws ServletException {
     	super.init(config);
@@ -43,7 +43,8 @@ public class ApplicantControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action=request.getParameter("action");
+		
+		/*String action=request.getParameter("action");
 	
 		if(action.contentEquals("loadadmissionsform")) {
 		List<ApplicantModel> applicantModelList=applicantService.retrieveApplicants();
@@ -59,18 +60,19 @@ public class ApplicantControllerServlet extends HttpServlet {
 					request.getRequestDispatcher("ApplicationUnsuccessful.jsp");
 			dispatcher.forward(request,response);
 		}
-	}
+	}*/
 }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String action=request.getParameter("action");
-        if(action.contentEquals("loadadmissionsform")) {
+       // String action=request.getParameter("action");
+     //   System.out.println(action);
+      //  if(action.contentEquals("loadadmissionsform")) {
         	
-        	int applicantId=Integer.parseInt(request.getParameter("applicantId"));
+        	//int applicantId=Integer.parseInt(request.getParameter("applicantId"));
         	
         	String firstName=request.getParameter("firstName");
-        	String lastName=request.getParameter("lastName");
+        	String lastName=request.getParameter("lastName");   
         	String email=request.getParameter("email");
         	String phoneNumber=request.getParameter("phoneNumber");
         	double tenthPercentage=Double.parseDouble(request.getParameter("tenthPercentage"));
@@ -121,14 +123,14 @@ public class ApplicantControllerServlet extends HttpServlet {
         		String outcome=applicantService.storeApplicantService(applicantModel);
         		if(outcome.contentEquals("success")) {
         			 RequestDispatcher dispatcher=
-        	    				request.getRequestDispatcher("applicationsuccessful.jsp");
+        	    				request.getRequestDispatcher("ApplicationSuccessful.jsp");
         			 request.setAttribute("applicantModel", applicantModel);
            			 request.setAttribute("operation", "Registration was Successful");
 
         	    		dispatcher.forward(request,response);
         		}else {
         			 RequestDispatcher dispatcher=
-        	    				request.getRequestDispatcher("applicationunsuccessful.jsp");
+        	    				request.getRequestDispatcher("ApplicationSuccessful.jsp");
            			 request.setAttribute("operation", "Application Unsuccessful");
 
         	    		dispatcher.forward(request,response);
@@ -141,4 +143,4 @@ public class ApplicantControllerServlet extends HttpServlet {
         	
         }	
 	}
-}
+//}
