@@ -1,5 +1,6 @@
 package com.virtusa.controller;
 
+import java.io.Console;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
@@ -20,7 +21,7 @@ import com.virtusa.validation.ApplicantModelValidator;
 /**
  * Servlet implementation class ApplicantControllerServlet
  */
-@WebServlet("/ApplicantControllerServlet")
+@WebServlet("loadadmissionsform")
 public class ApplicantControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ApplicantService applicantService=null;
@@ -43,6 +44,7 @@ public class ApplicantControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action=request.getParameter("action");
+	
 		if(action.contentEquals("loadadmissionsform")) {
 		List<ApplicantModel> applicantModelList=applicantService.retrieveApplicants();
 		request.setAttribute("applicantModelList", applicantModelList);

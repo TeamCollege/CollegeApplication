@@ -10,7 +10,7 @@
 </head>
 <body>
 <div align="center">
-<form method="post" action="user?action=loadadmissionsform">
+<form method="post" action="loadadmissionsform">
 <table>
 
 <tr>
