@@ -21,7 +21,7 @@ import com.virtusa.service.ApplicantServiceImpl;
 @WebServlet("/ApplicantControllerServlet")
 public class ApplicantControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static Logger logger = Logger.getLogger(ApplicantController.class);
+//	static Logger logger = Logger.getLogger(ApplicantController.class);
 
     /**
      * Default constructor. 
@@ -52,7 +52,7 @@ public class ApplicantControllerServlet extends HttpServlet {
 				out.println("Your Application Number is: "+request.getParameter("applicationNumber"));
 			}
 			} catch (ParseException | NumberFormatException e) {
-				logger.info(e);
+				//logger.info(e);
 			}
 	}
 
