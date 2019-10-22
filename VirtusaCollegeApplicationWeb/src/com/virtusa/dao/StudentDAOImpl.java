@@ -74,7 +74,7 @@ public class StudentDAOImpl implements StudentDAO {
 			}
 			
 			  ClassSchedule classSchedule=new ClassSchedule();
-			  List<ClassSchedule> classScheduleList=new ArrayList<ClassSchedule>();
+			  List<ClassSchedule> classScheduleList=new ArrayList<>();
 			  while(resultSet.next()) {
 				  classSchedule.setDay(resultSet.getString("day"));
 				  classSchedule.setFirstHour(resultSet.getString("first_hour"));
@@ -87,8 +87,84 @@ public class StudentDAOImpl implements StudentDAO {
 			return classScheduleList;
 		}
 	
-	  
-	  
+	  @Override
+		public List<ExamSchedule> handleExamSchedule(String departmentName)
+				throws ClassNotFoundException, SQLException {
+			// TODO Auto-generated method stub
+		  Connection	 connection=ConnectionManager.openConnection();
+			Statement statement=connection.createStatement();
+			ResultSet resultSet = null;
+			switch(departmentName) {
+			case "cse":
+				resultSet = statement.executeQuery("select * from cse_exam_schedule");
+				break;
+			case "ece":
+				resultSet = statement.executeQuery("select * from ece_exam_schedule");
+				break;
+			case "eee":       
+				resultSet = statement.executeQuery("select * from eee_exam_schedule");
+				break;
+			}
+			 ExamSchedule examSchedule=new ExamSchedule();
+			 List<ExamSchedule> examScheduleList=new ArrayList<>();
+			 while(resultSet.next()) {
+				 examSchedule.setExamId(resultSet.getString("exam_id"));
+				 examSchedule.setExamType(resultSet.getString("exam_type"));
+				 examSchedule.setExamName(resultSet.getString("exam_name"));
+				 examSchedule.setExamDate(resultSet.getDate("exam_date"));
+				 examSchedule.setExamSubject1(resultSet.getString("exam_subject1"));
+				 examSchedule.setExamSubject2(resultSet.getString("exam_subject2"));
+				 
+				 examScheduleList.add(examSchedule);
+			 }ConnectionManager.closeConnection();
+			 return examScheduleList;
+		}
+		@Override
+		public List<Results> handleResults(int studentId) throws ClassNotFoundException, SQLException {
+			// TODO Auto-generated method stub
+			Connection	 connection=ConnectionManager.openConnection(); 
+			  PreparedStatement statement=connection.prepareStatement("select * from results ");
+	
+			  ResultSet resultSet=statement.executeQuery();
+			  Results results=new Results();
+			  List<Results> resultsList=new ArrayList<>();
+			  while(resultSet.next()) {
+				  results.setStudentId(resultSet.getInt("student_id"));
+				  results.setSubject1Name(resultSet.getString("subject1_name"));
+				  results.setSubject1Marks(resultSet.getInt("subject1_marks"));
+				  results.setSubject2Name(resultSet.getString("subject2_name"));
+				  results.setSubject2Marks(resultSet.getInt("subject2_marks"));
+				  results.setFinalresult(resultSet.getString("final_result"));
+				  resultsList.add(results);
+				  
+				
+			  }ConnectionManager.closeConnection();
+			return resultsList;
+		}
+
+		@Override
+		public List<PlacementCalender> handlePlacementCalender() throws ClassNotFoundException, SQLException {
+			Connection	 connection=ConnectionManager.openConnection(); 
+			  PreparedStatement statement=connection.prepareStatement("select * from placement_calender ");
+	
+			  ResultSet resultSet=statement.executeQuery();
+			  PlacementCalender placementCalender=new PlacementCalender();
+			  List<PlacementCalender> placementCalenderList=new ArrayList<>();
+			  while(resultSet.next()) {
+				  placementCalender.setComapanyName(resultSet.getString("company_name"));
+				  placementCalender.setDate(resultSet.getDate("date"));
+				  placementCalender.setPlacementId(resultSet.getInt("placement_id"));
+				  placementCalender.setLocation(resultSet.getString("location"));
+				  placementCalender.setEligibilityCriteria(resultSet.getString("eligibility_criteria"));
+				 System.out.println(resultSet.getString("eligibility_criteria"));
+				  placementCalenderList.add(placementCalender);
+				  
+				
+			  }ConnectionManager.closeConnection();
+			  System.out.println(placementCalenderList);
+			return placementCalenderList;
+			
+		}
 	  
 	  public Student getExaminationSchedule(String departmentName) throws ClassNotFoundException, SQLException {
 		  
@@ -204,6 +280,10 @@ public class StudentDAOImpl implements StudentDAO {
 			
 			return false;
 		}
+
+	
+
+		
 
 
 

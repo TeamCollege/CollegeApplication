@@ -26,10 +26,11 @@ a:hover, a:active {
 
 <h1> Student View </h1> <br><br><br>
 <a href="classdepartments.html"><b>View Class Schedule</b> </a><br><br>
-<a href="student?action=viewexamSchedule"><b> View Exam Schedule</b> </a><br><br>
-<a href="student?action=viewresults"><b>View Results</b></a><br><br>
+<a href="examdepartments.html"><b> View Exam Schedule</b> </a><br><br>
+<a href="resultsstudent.html"><b>View Results</b></a><br><br>
 <a href="student?action=assignments"><b>Upload and Download Assignments</b></a><br><br>
-<a href="student?action=viewplacementcalender"><b>View Placement Calender</b></a><br><br>
+<a href="demohtml.html"><b>View Placement Calender</b></a><br><br>
+<a href="generalexams.html"><b>Practice Exams</b></a><br><br>
 <a href="student?action=logout"> <b>logout </b></a><br>
 </body>
 </html>

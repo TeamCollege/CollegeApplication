@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import com.virtusa.helper.FactoryStudentDB;
 import com.virtusa.model.ClassScheduleModel;
+import com.virtusa.model.ExamScheduleModel;
+import com.virtusa.model.PlacementCalenderModel;
+import com.virtusa.model.ResultsModel;
 import com.virtusa.service.StudentService;
 
 /**
@@ -69,6 +72,29 @@ public class StudentControllerServlet extends HttpServlet {
 			RequestDispatcher dispatcher=
 					request.getRequestDispatcher("classschedule.jsp");
 			dispatcher.forward(request,response);
+		}
+		if(action.contentEquals("viewexamschedule")) {
+			 List<ExamScheduleModel> examScheduleModelList=studentService.retrieveExamSchedule(departmentName);
+				request.setAttribute("examScheduleModelList",examScheduleModelList );
+				RequestDispatcher dispatcher=
+						request.getRequestDispatcher("examschedule.jsp");
+				dispatcher.forward(request,response);
+		}
+		int studentId=Integer.parseInt(request.getParameter("studentId"));
+		System.out.println(studentId);
+		if(action.contentEquals("viewresults")) {
+			 List<ResultsModel> resultsModelList=studentService.retrieveResults(studentId);
+				request.setAttribute("resultsModelList",resultsModelList );
+				RequestDispatcher dispatcher=
+						request.getRequestDispatcher("results.jsp");
+				dispatcher.forward(request,response);
+		}
+		if(action.contentEquals("viewplacementcalender")) {
+			 List<PlacementCalenderModel> placementCalenderModelList=studentService.retrievePlacementCalender();
+				request.setAttribute("placementCalenderModelList",placementCalenderModelList );
+				RequestDispatcher dispatcher=
+						request.getRequestDispatcher("placementcalender.jsp");
+				dispatcher.forward(request,response);
 		}
 	}
 

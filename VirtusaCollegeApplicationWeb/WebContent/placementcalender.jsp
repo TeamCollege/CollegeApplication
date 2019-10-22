@@ -11,24 +11,25 @@
 
 </head>
 <body background="" align="center"><br><br><br>
-<h1 align="center">Class Schedule Details</h1><br><br><br>
+<h1 align="center">Results Details</h1><br><br><br>
 
 <table border=2 align="center">
 <tr>
-<th>Day</th>
-<th>First Hour</th>
-<th>Second Hour</th>
-<th>Third Hour</th>
-<th>Fourth Hour</th>
+<th>Placement ID</th>
+<th>Company Name</th>
+<th>Date</th>
+<th>Location</th>
+<th>Eligibility Criteria</th>
 </tr>
 
-<c:forEach items="${classScheduleModelList}" var="classschedule">
+<c:forEach items="${placementCalenderModelList}" var="placement">
 <tr>
-<td><c:out value="${classschedule.day}"/></td>
-<td><c:out value="${classschedule.firstHour}"/></td>
-<td><c:out value="${classschedule.secondHour}"/></td>
-<td><c:out value="${classschedule.thirdHour}"/></td>
-<td><c:out value="${classschedule.fourthHour}"/></td>
+<td><c:out value="${placement.placementId}"/></td>
+<td><c:out value="${placement.companyName}"/></td>
+<td><c:out value="${placement.location}"/></td>
+<td><c:out value="${placement.date}"/></td>
+<td><c:out value="${placement.eligibilityCriteria}"/></td>
+
 
 </tr>
 </c:forEach>

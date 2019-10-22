@@ -74,6 +74,77 @@ public class StudentServiceImpl implements StudentService {
 	
 	}
 	
+	public List<ExamScheduleModel> retrieveExamSchedule(String departmentName){
+		 List<ExamScheduleModel> examScheduleModelList=new ArrayList<>();
+		 try {
+			List<ExamSchedule> examSchedule=studentDAO.handleExamSchedule(departmentName);
+			for(ExamSchedule examSchedule1:examSchedule) {
+				ExamScheduleModel examScheduleModel=new ExamScheduleModel();
+				examScheduleModel.setExamId(examSchedule1.getExamId());
+				examScheduleModel.setExamType(examSchedule1.getExamType());
+				examScheduleModel.setExamName(examSchedule1.getExamName());
+				examScheduleModel.setExamDate(examSchedule1.getExamDate());
+				examScheduleModel.setExamSubject1(examSchedule1.getExamSubject1());
+				examScheduleModel.setExamSubject2(examSchedule1.getExamSubject2());
+				examScheduleModelList.add(examScheduleModel);
+			}
+			}catch(ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+
+		return examScheduleModelList;
+		
+		}
+	
+	@Override
+	public List<ResultsModel> retrieveResults(int studentId)
+	{
+		List<ResultsModel> resultsModelList=new ArrayList<>();
+		 try {
+			List<Results> results=studentDAO.handleResults(studentId);
+			for(Results results1:results) {
+				ResultsModel resultsModel=new ResultsModel();
+				resultsModel.setStudentId(results1.getStudentId());
+				resultsModel.setSubject1Name(results1.getSubject1Name());
+				resultsModel.setSubject1Marks(results1.getSubject1Marks());
+				resultsModel.setSubject2Name(results1.getSubject2Name());
+				resultsModel.setSubject2Marks(results1.getSubject2Marks());
+				resultsModel.setFinalresult(results1.getFinalresult());
+				resultsModelList.add(resultsModel);
+			}
+			}catch(ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+
+		return resultsModelList;
+	}
+	
+	
+	public List<PlacementCalenderModel> retrievePlacementCalender(){
+		
+		List<PlacementCalenderModel> placementCalenderModelList=new ArrayList<>();
+		 try {
+			List<PlacementCalender> placementCalender=studentDAO.handlePlacementCalender();
+			for(PlacementCalender placementCalender1:placementCalender) {
+				PlacementCalenderModel placementCalenderModel=new PlacementCalenderModel();
+				placementCalenderModel.setComapanyName(placementCalender1.getComapanyName());
+				placementCalenderModel.setDate(placementCalender1.getDate());
+				placementCalenderModel.setPlacementId(placementCalender1.getPlacementId());
+				placementCalenderModel.setLocation(placementCalender1.getLocation());
+				placementCalenderModel.setEligibilityCriteria(placementCalender1.getEligibilityCriteria());
+				placementCalenderModelList.add(placementCalenderModel);
+			}
+			}catch(ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+System.out.println(placementCalenderModelList);
+		return placementCalenderModelList;
+	}
+	
+	
+	
+	
+	
 	@Override
 	public StudentModel handleRetrieveExamintionSchedule(String departmentName) {
 		// TODO Auto-generated method stub
@@ -177,6 +248,8 @@ public class StudentServiceImpl implements StudentService {
 		
 		return result;
 	}
+	
+	
 	}
 
 	
