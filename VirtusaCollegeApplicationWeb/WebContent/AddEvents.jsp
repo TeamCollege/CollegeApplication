@@ -13,6 +13,11 @@
  			<h1 align="center">Add Events</h1>
 			<table style="with: 50%">
 				<tr>
+					<td>Event Id</td>
+					<td>:</td>
+					<td><input type="number" name="event_Id" required/></td>
+				</tr>
+				<tr>
 					<td>Event Name</td>
 					<td>:</td>
 					<td><input type="text" name="event_name" required/></td>
@@ -30,7 +35,8 @@
 				<tr>
 				<td></td>
 				<td></td>
-				<td><input type="submit" class="button" value="Submit" >
+				<td><input type="submit" class="button" value="Submit" ></td>
+				</tr>
 				</div> 
 				</form>
 </body>

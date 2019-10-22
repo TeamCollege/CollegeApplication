@@ -49,19 +49,21 @@ public class AdminServlet extends HttpServlet {
 		//String action = request.getParameter("action");
 		//if(action.contentEquals("addevents"))
 		//{
+			int id =	Integer.parseInt(request.getParameter("event_Id"));
 			String eventName = request.getParameter("event_name");
 			String date = request.getParameter("event_date");
 			String location = request.getParameter("location");
-			//adminService=factoryAdminService.createAdminService();
-			boolean result = factoryAdminService.createAdminService().addEventsService(eventName, date, location);
+			boolean result = factoryAdminService.createAdminService().addEventsService(id,eventName, date, location);
 			System.out.println(result);
-			 if(result)
+			 if(result==true)
 			 {
-				 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Successful.html");
+				// System.out.print("<p>Data Added Successfully!!!!!!");
+				 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Succesfully.jsp");
 			 }
 			 else
 			 {
-				 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Unsuccesfull.html");
+				 //System.out.print("<p>Data Added Successfully!!!!!!");
+				 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Unsuccesfull.html");
 			 }
 			
 			//}

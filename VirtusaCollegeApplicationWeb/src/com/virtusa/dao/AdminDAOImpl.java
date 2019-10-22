@@ -130,7 +130,7 @@ public class AdminDAOImpl implements AdminDAO
 			student.setTenthPercentage(resultSet.getDouble("tenth_percentage"));
 			student.setInterPercentage(resultSet.getDouble("inter_percentage"));
 			student.setDepartmentName(resultSet.getString("department_name"));
-			student.setAadharNUmber(resultSet.getString("aadhar_number"));
+			//student.setAadharNUmber(resultSet.getString("aadhar_number"));
 			studentList.add(student);
 			
 		}
@@ -201,18 +201,18 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean addEventsDAO(String name, String date, String location) throws ClassNotFoundException, SQLException
+	public boolean addEventsDAO(int id, String name, String date, String location) throws ClassNotFoundException, SQLException
 	{
 
 				Connection connection=ConnectionManager.openConnection();
 
 		PreparedStatement preparedStatement=
-				connection.prepareStatement("insert into  events values(?,?,?)");
-		//preparedStatement.setInt(1, id);
-		preparedStatement.setString(1, name);
-	preparedStatement.setString(2, date);
+				connection.prepareStatement("insert into  events values(?,?,?,?)");
+		preparedStatement.setInt(1, id);
+		preparedStatement.setString(2, name);
+	preparedStatement.setString(3, date);
 
-			preparedStatement.setString(3, location);
+			preparedStatement.setString(4, location);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0) {
 			System.out.println("Events data is stored Successfully");
@@ -232,8 +232,15 @@ public class AdminDAOImpl implements AdminDAO
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("delete from events where event_id=?");
 		preparedStatement.setInt(1, eventId);
-		preparedStatement.executeUpdate();
-		return true;
+		int rows = preparedStatement.executeUpdate();
+		if(rows>0) {
+			System.out.println("Events data is deleted Successfully");
+			return true;}
+			
+		else {
+			System.out.println("Events data is not delete Successfully");
+			return false;
+		}     
 	}
 
 	@Override
