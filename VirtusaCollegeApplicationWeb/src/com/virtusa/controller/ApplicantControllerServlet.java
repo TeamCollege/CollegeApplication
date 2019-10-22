@@ -29,7 +29,7 @@ public class ApplicantControllerServlet extends HttpServlet {
     public ApplicantControllerServlet() {
     	super();
     }
-
+ 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
