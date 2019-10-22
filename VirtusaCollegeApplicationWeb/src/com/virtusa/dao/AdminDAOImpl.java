@@ -201,18 +201,18 @@ public class AdminDAOImpl implements AdminDAO
 	}
 
 	@Override
-	public boolean addEventsDAO(int id, String name, String date, String location) throws ClassNotFoundException, SQLException
+	public boolean addEventsDAO(String name, String date, String location) throws ClassNotFoundException, SQLException
 	{
 
 				Connection connection=ConnectionManager.openConnection();
 
 		PreparedStatement preparedStatement=
-				connection.prepareStatement("insert into  events values(?,?,?,?)");
-		preparedStatement.setInt(1, id);
-		preparedStatement.setString(2, name);
-	preparedStatement.setString(3, date);
+				connection.prepareStatement("insert into  events values(NULL,?,?,?)");
+		//preparedStatement.setInt(1, id);
+		preparedStatement.setString(1, name);
+	preparedStatement.setString(2, date);
 
-			preparedStatement.setString(4, location);
+			preparedStatement.setString(3, location);
 		int rows = preparedStatement.executeUpdate();
 		if(rows>0) {
 			System.out.println("Events data is stored Successfully");
