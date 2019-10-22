@@ -1,4 +1,4 @@
-package com.virtusa.controller;
+package com.virtusa.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class FacultyController
+ * Servlet implementation class AdminServlet
  */
-@WebServlet("/FacultyController")
-public class FacultyController extends HttpServlet {
+@WebServlet("/AdminServlet")
+public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FacultyController() {
+    public AdminServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
