@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-     <form action="" method="" autocomplete="off" >
+     <form action="admin" method="post" autocomplete="off" >
  
  <div class="container">
  			<h1 align="center">Add Events</h1>
@@ -30,7 +30,7 @@
 				<tr>
 				<td></td>
 				<td></td>
-				<td><input type="submit" class="button" value="Submit" name="registrationform" onsubmit="return(validate());"/>
+				<td><input type="submit" class="button" value="Submit" >
 				</div> 
 				</form>
 </body>

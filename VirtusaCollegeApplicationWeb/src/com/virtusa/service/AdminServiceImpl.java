@@ -231,10 +231,11 @@ public class AdminServiceImpl implements AdminService
 	
 
 	@Override
-	public void addEventsService(int id, String name, String date, String location)
+	public boolean addEventsService(String name, String date, String location)
 	{
+		boolean result = false;
 		try {
-			adminDAO.addEventsDAO(id, name, date, location);
+			result = adminDAO.addEventsDAO(name, date, location);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -242,7 +243,7 @@ public class AdminServiceImpl implements AdminService
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return result;
 	}
 
 	@Override

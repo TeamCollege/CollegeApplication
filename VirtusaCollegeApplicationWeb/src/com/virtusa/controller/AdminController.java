@@ -1,4 +1,4 @@
-package com.virtusa.controller;
+/*package com.virtusa.controller;
 
 import com.virtusa.helper.FactoryAdminService;
 import com.virtusa.model.FacultyModel;
@@ -92,3 +92,4 @@ public class AdminController
 	
 
 }
+*/
