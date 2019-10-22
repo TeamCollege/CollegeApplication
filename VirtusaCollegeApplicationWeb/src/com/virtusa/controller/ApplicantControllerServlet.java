@@ -32,7 +32,7 @@ public class ApplicantControllerServlet extends HttpServlet {
     public ApplicantControllerServlet() {
     	super();
     }
-    
+     
     @Override
     public void init(ServletConfig config) throws ServletException {
     	super.init(config);
@@ -72,7 +72,7 @@ public class ApplicantControllerServlet extends HttpServlet {
         	//int applicantId=Integer.parseInt(request.getParameter("applicantId"));
         	
         	String firstName=request.getParameter("firstName");
-        	String lastName=request.getParameter("lastName");
+        	String lastName=request.getParameter("lastName");   
         	String email=request.getParameter("email");
         	String phoneNumber=request.getParameter("phoneNumber");
         	double tenthPercentage=Double.parseDouble(request.getParameter("tenthPercentage"));

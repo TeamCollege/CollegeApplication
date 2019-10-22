@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class FacultyControllerServlet
  */
 @WebServlet("/FacultyControllerServlet")
-public class FacultyControllerServlet extends HttpServlet {
+public class FacultyControllerServlet extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
-     */
+     */ 
     public FacultyControllerServlet() {
         super();
         // TODO Auto-generated constructor stub

@@ -23,10 +23,10 @@
 <td><input type="text" name="lastName"/>&nbsp;<label style="color:red"><c:out value="${lastnameerror}"/></label></td>
 </tr>
 
-<tr>
+<tr> 
 <td><label for="email">Email:</label></td>
 <td><input type="email" name="email"/>&nbsp;<label style="color:red"><c:out value="${emailerror}"/></label><label style="color:red"><c:out value="${emailexisterror}"/></label></td>
-</tr>
+</tr> 
 
 <tr>
 <td><label for="phoneNumber">Phone Number:</label></td>
