@@ -34,7 +34,7 @@ public boolean validString(String val) {
 		alphabets.add((char)i);
 	}
 	for(int i=97;i<=122;i++) {
-		alphabets.add((char)i);
+		alphabets.add((char)i); 
 	}
 	
 

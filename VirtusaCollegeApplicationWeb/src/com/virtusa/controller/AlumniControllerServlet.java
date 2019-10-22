@@ -19,7 +19,7 @@ import com.virtusa.validation.AlumniModelValidator;
 /**
  * Servlet implementation class AlumniControllerServlet
  */
-@WebServlet("/AlumniControllerServlet")
+@WebServlet("/loadregistrationform")
 public class AlumniControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AlumniService alumniService=null;
@@ -74,7 +74,7 @@ public class AlumniControllerServlet extends HttpServlet {
 
 		
 		String action=request.getParameter("action");
-        if(action.contentEquals("newAlumni")) {
+        if(action.contentEquals("loadregistrationform")) {
         	
         	int alumniId=Integer.parseInt(request.getParameter("alumniId"));
         	

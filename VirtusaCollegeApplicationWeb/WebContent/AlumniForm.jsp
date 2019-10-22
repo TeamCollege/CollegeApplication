@@ -9,10 +9,10 @@
 
  
 
-</head>
+</head> 
 <body>
 <div align="center">
-<form method="post" action="alumni?action=loadregistrationform">
+<form method="post" action="loadregistrationform">
 <table>
 
  
