@@ -29,7 +29,7 @@ public class ApplicantServiceImpl implements ApplicantService
 		applicant.setDateOfBirth(applicantModel.getDateOfBirth());
 		applicant.setTenthPercentage(applicantModel.getTenthPercentage());
 		applicant.setInterPercentage(applicantModel.getInterPercentage());
-		//applicant.setCourseName(applicantModel.getCourseName());
+		//applicant.setCourseName(applicantModel.getCourseName()); 
 		applicant.setDepartmentName(applicantModel.getDepartmentName());
 		applicants.add(applicant);
 		
