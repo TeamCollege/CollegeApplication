@@ -1,0 +1,64 @@
+
+<html> 
+<style> 
+    
+      
+    form { 
+        border: 45px solid #f1f1f1;
+        padding:250px; 
+    } 
+         
+    input[type=text], 
+    input[type=password] { 
+        width: 100%; 
+        padding: 12px 20px; 
+        margin: 8px 0; 
+        display: inline-block; 
+        border: 1px solid #ccc; 
+        box-sizing: border-box; 
+    } 
+         
+    .button { 
+        background-color: grey; 
+        color: white; 
+        padding: 14px 20px; 
+        margin-left: 0px; 
+        border: none; 
+        cursor: pointer; 
+        width: 20%; 
+    } 
+           
+    .container { 
+        padding: 30px;
+        margin-left: 250px;
+        margin-right: 250px; 
+    } 
+    /*set the forgot password text*/ 
+      
+    span.password { 
+         
+        padding-top: 16px; 
+        
+    } 
+  
+  
+</style> 
+  
+<body> 
+
+    <form action="login" method="post" autocomplete="off"> 
+            <div class="container"> 
+            <label><b>Username</b></label> 
+            <input type="text" placeholder="Enter Username" name="username"  required> 
+  
+            <label><b>Password</b></label> 
+            <input type="password" placeholder="Enter Password" name="password"  required> 
+            <br>
+  
+            <input type="submit" class="button" value="Login"/> 
+             <input type="reset" class="button" value="Reset"/>
+        </div> 
+    </form> 
+  
+</body> 
+</html> 
