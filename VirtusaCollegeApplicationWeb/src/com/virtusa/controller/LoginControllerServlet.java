@@ -69,7 +69,7 @@ public class LoginControllerServlet extends HttpServlet {
 				String outcome=null;
 				try {
 					 outcome=loginService.userAuthenticationService(loginModel);
-					System.out.print("value="+outcome);
+					//System.out.print("value="+outcome);
 				} catch (ClassNotFoundException | SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -83,7 +83,7 @@ public class LoginControllerServlet extends HttpServlet {
 				}
 				else if(outcome.contentEquals("STUDENT")){
 					RequestDispatcher dispatcher=
-							request.getRequestDispatcher("student.html");
+							request.getRequestDispatcher("student.jsp");
 					dispatcher.forward(request,response);
 				}
 				else if(outcome.contentEquals("FACULTY")){

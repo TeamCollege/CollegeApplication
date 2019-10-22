@@ -7,7 +7,7 @@ import com.virtusa.dao.StudentDAOImpl;
 import com.virtusa.service.StudentService;
 import com.virtusa.service.StudentServiceImpl;
 
-public class FactoryStudentDAO {
+public class FactoryStudentDB {
 
 	public static StudentDAO createStudentDAO() {
 		StudentDAO studentDAO=new StudentDAOImpl();

@@ -25,7 +25,7 @@ a:hover, a:active {
 <body align="center"  background="">
 
 <h1> Student View </h1> <br><br><br>
-<a href="student?action=viewclassschedule"><b>View Class Schedule</b> </a><br><br>
+<a href="classdepartments.html"><b>View Class Schedule</b> </a><br><br>
 <a href="student?action=viewexamSchedule"><b> View Exam Schedule</b> </a><br><br>
 <a href="student?action=viewresults"><b>View Results</b></a><br><br>
 <a href="student?action=assignments"><b>Upload and Download Assignments</b></a><br><br>

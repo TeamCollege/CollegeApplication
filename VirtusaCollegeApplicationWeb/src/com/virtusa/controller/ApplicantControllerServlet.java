@@ -21,7 +21,7 @@ import com.virtusa.validation.ApplicantModelValidator;
 /**
  * Servlet implementation class ApplicantControllerServlet
  */
-@WebServlet("loadadmissionsform")
+@WebServlet("/ApplicantControllerServlet")
 public class ApplicantControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ApplicantService applicantService=null;
