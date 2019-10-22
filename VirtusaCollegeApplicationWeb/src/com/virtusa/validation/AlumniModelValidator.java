@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.virtusa.helper.FactoryAlumniDAO;
+import com.virtusa.helper.FactoryAlumniService;
 import com.virtusa.model.AlumniModel;
 import com.virtusa.model.ApplicantModel;
+import com.virtusa.service.AlumniService;
 
 public class AlumniModelValidator {
 	
@@ -84,5 +87,19 @@ public boolean validPresentStatus(String presentStatus) {
    
     return result;
     }    
+public boolean emailExist(String email) {
+	boolean result=false;
+	AlumniService alumniService=FactoryAlumniService.createAlumniService();
+	List<AlumniModel> alumniModelList=alumniService.retrieveAlumni();
+	for(AlumniModel alumniModel:alumniModelList) {
+		
+		if(alumniModel.getEmail().contentEquals(email)) {
+			return true;
+			
+		}
+	}
+	return result;
+}
+
 
 }
