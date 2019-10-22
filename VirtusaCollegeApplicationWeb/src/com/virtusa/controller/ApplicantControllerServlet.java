@@ -21,7 +21,7 @@ import com.virtusa.validation.ApplicantModelValidator;
 /**
  * Servlet implementation class ApplicantControllerServlet
  */
-@WebServlet("loadadmissionsform")
+@WebServlet("/ApplicantControllerServlet")
 public class ApplicantControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ApplicantService applicantService=null;
@@ -43,7 +43,8 @@ public class ApplicantControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action=request.getParameter("action");
+		
+		/*String action=request.getParameter("action");
 	
 		if(action.contentEquals("loadadmissionsform")) {
 		List<ApplicantModel> applicantModelList=applicantService.retrieveApplicants();
@@ -59,15 +60,16 @@ public class ApplicantControllerServlet extends HttpServlet {
 					request.getRequestDispatcher("ApplicationUnsuccessful.jsp");
 			dispatcher.forward(request,response);
 		}
-	}
+	}*/
 }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String action=request.getParameter("action");
-        if(action.contentEquals("loadadmissionsform")) {
+       // String action=request.getParameter("action");
+     //   System.out.println(action);
+      //  if(action.contentEquals("loadadmissionsform")) {
         	
-        	int applicantId=Integer.parseInt(request.getParameter("applicantId"));
+        	//int applicantId=Integer.parseInt(request.getParameter("applicantId"));
         	
         	String firstName=request.getParameter("firstName");
         	String lastName=request.getParameter("lastName");
@@ -121,14 +123,14 @@ public class ApplicantControllerServlet extends HttpServlet {
         		String outcome=applicantService.storeApplicantService(applicantModel);
         		if(outcome.contentEquals("success")) {
         			 RequestDispatcher dispatcher=
-        	    				request.getRequestDispatcher("applicationsuccessful.jsp");
+        	    				request.getRequestDispatcher("ApplicationSuccessful.jsp");
         			 request.setAttribute("applicantModel", applicantModel);
            			 request.setAttribute("operation", "Registration was Successful");
 
         	    		dispatcher.forward(request,response);
         		}else {
         			 RequestDispatcher dispatcher=
-        	    				request.getRequestDispatcher("applicationunsuccessful.jsp");
+        	    				request.getRequestDispatcher("ApplicationSuccessful.jsp");
            			 request.setAttribute("operation", "Application Unsuccessful");
 
         	    		dispatcher.forward(request,response);
@@ -141,4 +143,4 @@ public class ApplicantControllerServlet extends HttpServlet {
         	
         }	
 	}
-}
+//}

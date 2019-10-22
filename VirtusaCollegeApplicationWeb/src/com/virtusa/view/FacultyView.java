@@ -2,6 +2,7 @@ package com.virtusa.view;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import com.virtusa.controller.FacultyController;
 import com.virtusa.model.ClassScheduleModel;
@@ -10,11 +11,12 @@ import com.virtusa.model.UploadDownloadAssignmentsModel;
 
 public class FacultyView {  
 		
-
+	Logger log = Logger.getLogger(FacultyView.class.getName());
 
 	
 	public void facultyMenu() {
-
+		
+		log.info("This is Faculty Menu ");
 
 		FacultyModel facultyModel = new FacultyModel();
 	     
