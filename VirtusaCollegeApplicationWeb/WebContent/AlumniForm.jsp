@@ -47,8 +47,9 @@
 <td><label for="gender">Gender:</label></td>
 <td>
 <select name="gender">
-<option value="female"><c:out value="Female"/></option>
-<option value="male"><c:out value="Male"/></option>
+<option value=>Select</option>
+<option value="female">Female</option>
+<option value="male">Male</option>
 </select>
 </td>
 </tr>
@@ -57,15 +58,16 @@
 <td><label for="presentStatus">Present Status:</label></td>
 <td>
 <select name="presentStatus">
-<option value="employed"><c:out value="Employed"/></option>
-<option value="higherStudies"><c:out value="Higher Studies"/></option>
+<option value=>Select</option>
+<option value="employed">Employed</option>
+<option value="higherStudies">Higher Studies</option>
 </select>
 </td>
 </tr>
 
 <tr>
 <td><label for="yearOfCompletion">Year Of Completion:</label></td>
-<td><input type="number" name=""/>yearOfCompletion</td>
+<td><input type="text" name=""/></td>
 </tr>
 
 <tr>
