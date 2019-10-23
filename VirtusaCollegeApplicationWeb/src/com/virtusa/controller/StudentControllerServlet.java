@@ -51,7 +51,15 @@ public class StudentControllerServlet extends HttpServlet {
 		String departmentName=(String) session.getAttribute("departmentname");
 		System.out.println(departmentName);*/
 		
-		System.out.println("hello");
+		//System.out.println("hello");
+		String action=request.getParameter("action");
+		if(action.contentEquals("viewplacementcalender")) {
+			 List<PlacementCalenderModel> placementCalenderModelList=studentService.retrievePlacementCalender();
+				request.setAttribute("placementCalenderModelList",placementCalenderModelList );
+				RequestDispatcher dispatcher=
+						request.getRequestDispatcher("placementcalender.jsp");
+				dispatcher.forward(request,response);
+		}
 	}
 	
 
@@ -89,13 +97,7 @@ public class StudentControllerServlet extends HttpServlet {
 						request.getRequestDispatcher("results.jsp");
 				dispatcher.forward(request,response);
 		}
-		if(action.contentEquals("viewplacementcalender")) {
-			 List<PlacementCalenderModel> placementCalenderModelList=studentService.retrievePlacementCalender();
-				request.setAttribute("placementCalenderModelList",placementCalenderModelList );
-				RequestDispatcher dispatcher=
-						request.getRequestDispatcher("placementcalender.jsp");
-				dispatcher.forward(request,response);
-		}
+		
 	}
 
 }

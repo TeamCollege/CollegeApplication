@@ -98,6 +98,7 @@ public class AlumniServiceImpl implements AlumniService {
 			// TODO Auto-generated catch block
 			System.out.println("!ERROR[Retrieval of Departments failed!!!]");
 		}
+		System.out.println(alumniModelList);
 		return alumniModelList;
 	}
 

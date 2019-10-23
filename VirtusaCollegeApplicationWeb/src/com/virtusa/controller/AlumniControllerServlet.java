@@ -74,7 +74,7 @@ public class AlumniControllerServlet extends HttpServlet {
 
 		
 		String action=request.getParameter("action");
-        if(action.contentEquals("loadregistrationform")) {
+        if(action.contentEquals("loadform")) {
         	
         	int alumniId=Integer.parseInt(request.getParameter("alumniId"));
         	
@@ -139,14 +139,14 @@ public class AlumniControllerServlet extends HttpServlet {
         		String outcome=alumniService.registerAlumni(alumniModel);
         		if(outcome.contentEquals("success")) {
         			 RequestDispatcher dispatcher=
-        	    				request.getRequestDispatcher("alumnisuccess.jsp");
+        	    				request.getRequestDispatcher("AlumniSuccess.jsp");
         			 request.setAttribute("alumniModel",alumniModel);
            			 request.setAttribute("operation", "Below Alumni record Registration was Successfully");
 
         	    		dispatcher.forward(request,response);
         		}else {
         			 RequestDispatcher dispatcher=
-        	    				request.getRequestDispatcher("alumnifail.jsp");
+        	    				request.getRequestDispatcher("ALumniFail.jsp");
            			 request.setAttribute("operation", "Alumni Registration Failed");
 
         	    		dispatcher.forward(request,response);

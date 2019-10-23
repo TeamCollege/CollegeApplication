@@ -25,7 +25,7 @@
 <c:forEach items="${placementCalenderModelList}" var="placement">
 <tr>
 <td><c:out value="${placement.placementId}"/></td>
-<td><c:out value="${placement.companyName}"/></td>
+<td><c:out value="${placement.comapanyName}"/></td>
 <td><c:out value="${placement.location}"/></td>
 <td><c:out value="${placement.date}"/></td>
 <td><c:out value="${placement.eligibilityCriteria}"/></td>

@@ -88,12 +88,12 @@ public class LoginControllerServlet extends HttpServlet {
 				}
 				else if(outcome.contentEquals("FACULTY")){
 					RequestDispatcher dispatcher=
-							request.getRequestDispatcher("faculty.html");
+							request.getRequestDispatcher("Faculty.jsp");
 					dispatcher.forward(request,response);
 				}
 				else if(outcome.contentEquals("ALUMNI")){
 					RequestDispatcher dispatcher=
-							request.getRequestDispatcher("alumni.html");
+							request.getRequestDispatcher("Alumni.html");
 					dispatcher.forward(request,response);
 				}
 
