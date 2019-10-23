@@ -5,7 +5,7 @@ import com.virtusa.service.FacultyServiceImpl;
 
 public class FactoryFacultyService {
 
-	public static FacultyService createApplicantService() {
+	public static FacultyService createFacultyService() {
 		FacultyService facultyService=new FacultyServiceImpl();
 		return facultyService;
 	} 

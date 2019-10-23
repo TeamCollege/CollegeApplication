@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.virtusa.entities.ClassSchedule;
+import com.virtusa.entities.ExamSchedule;
 import com.virtusa.entities.Faculty;
 import com.virtusa.entities.StaffMeeting;
 import com.virtusa.entities.Student;
@@ -28,7 +29,7 @@ public class FacultyDAOImpl implements FacultyDAO {
 		ResultSet resultSet = null;
 		switch(departmentName) {
 		case "cse":
-			resultSet = statement.executeQuery("select * from cse_schedule");
+			resultSet = statement.executeQuery("select * from cse_schedule"); 
 			break;
 		case "ece":
 			resultSet = statement.executeQuery("select * from ece_schedule");
@@ -51,27 +52,38 @@ public class FacultyDAOImpl implements FacultyDAO {
 		ConnectionManager.closeConnection();
 		return classScheduleList;
 	}
-
+  
 	@Override
-	public Faculty getStaffMeetingDetails(String facultyId) throws ClassNotFoundException, SQLException {
-		
-		Connection connection=ConnectionManager.openConnection(); 
-		PreparedStatement statement=connection.prepareStatement("select * from staff_meeting_details where faculty_Id=?");
-		statement.setString(1, facultyId);
-		ResultSet resultSet=statement.executeQuery();
+	public List<StaffMeeting> getStaffMeetingDetails(String departmentName1) throws ClassNotFoundException, SQLException {
 		Faculty faculty = new Faculty();
+		Connection connection=ConnectionManager.openConnection(); 
+		Statement statement=connection.createStatement();
+		ResultSet resultSet=null;
+		switch(departmentName1) {
+		case "cse":
+			resultSet = statement.executeQuery("select * from cse_staff_meeting"); 
+			break;
+		case "ece":
+			resultSet = statement.executeQuery("select * from ece_staff_meeting");
+			break;
+		case "eee":       
+			resultSet = statement.executeQuery("select * from eee_staff_meeting");
+			break;
+		}
+		StaffMeeting staffMeeting = new StaffMeeting();
+		List<StaffMeeting> staffMeetingList = new ArrayList<>();
 		while(resultSet.next()) {
-			StaffMeeting staffMeeting = new StaffMeeting();
+			//StaffMeeting staffMeeting = new StaffMeeting();
 			//staffMeeting.setFacultyId(resultSet.getString("faculty_id"));
 			staffMeeting.setStaffMeetingId(resultSet.getInt("staff_meeting_id"));
 			staffMeeting.setStaffMeetingAgenda(resultSet.getString("staff_meeting_agenda"));
 			staffMeeting.setLocation(resultSet.getString("location"));
 			
-			faculty.setStaffMeeting(staffMeeting);
+			staffMeetingList.add(staffMeeting);
 		}
 		
 		ConnectionManager.closeConnection();
-		return faculty;
+		return staffMeetingList;
 	}
 
 	@Override
@@ -93,6 +105,41 @@ public class FacultyDAOImpl implements FacultyDAO {
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public List<ExamSchedule> getExaminationSchedule(String departmentName) throws SQLException, ClassNotFoundException {
+		Connection	 connection=ConnectionManager.openConnection();
+		Statement statement=connection.createStatement();
+		ResultSet resultSet = null;
+		switch(departmentName) {
+		case "cse":
+			resultSet = statement.executeQuery("select * from cse_exam_schedule");
+			break;
+		case "ece":
+			resultSet = statement.executeQuery("select * from ece_exam_schedule");
+			break;
+		case "eee":       
+			resultSet = statement.executeQuery("select * from eee_exam_schedule");
+			break;
+		}
+		  
+		ExamSchedule examSchedule=new ExamSchedule();
+		List<ExamSchedule> examScheduleModelList = new ArrayList<>();
+		  while(resultSet.next()) {
+		  
+		 // students.setDepartmentName(resultSet.getString("department_name"));
+			  examSchedule.setExamId(resultSet.getString("exam_id"));
+			  examSchedule.setExamType(resultSet.getString("exam_type"));
+			  examSchedule.setExamName(resultSet.getString("exam_name"));
+			  examSchedule.setExamDate(resultSet.getDate("exam_date"));
+			  examSchedule.setExamSubject1(resultSet.getString("exam_subject1"));
+			  examSchedule.setExamSubject2(resultSet.getString("exam_subject2"));
+		  
+			  examScheduleModelList.add(examSchedule);
+		  } 
+		  ConnectionManager.closeConnection(); 
+		  return examScheduleModelList;	  
 	}
 }
 

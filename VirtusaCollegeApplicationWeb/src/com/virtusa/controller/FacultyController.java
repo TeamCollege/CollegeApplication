@@ -6,7 +6,9 @@ import com.virtusa.entities.ClassSchedule;
 import com.virtusa.helper.FactoryApplicantService;
 import com.virtusa.helper.FactoryFacultyService;
 import com.virtusa.model.ClassScheduleModel;
+import com.virtusa.model.ExamScheduleModel;
 import com.virtusa.model.FacultyModel;
+import com.virtusa.model.StaffMeetingModel;
 import com.virtusa.model.StudentModel;
 import com.virtusa.model.UploadDownloadAssignmentsModel;
 import com.virtusa.service.FacultyService;
@@ -18,7 +20,7 @@ public class FacultyController {
 	FacultyView facultyView = new FacultyView();
 	
 	public FacultyController() { 
-		this.facultyService = FactoryFacultyService.createApplicantService();
+		this.facultyService = FactoryFacultyService.createFacultyService();
 
 	}       
 
@@ -26,12 +28,12 @@ public class FacultyController {
 		List<ClassScheduleModel> model = facultyService.retreiveClassSchedule(departmentName);
 		facultyView.displayClassSchedule(model);
 	}
- 
-	public void handleStaffMeeting(String facultyId) {
 
-		FacultyModel staffMeeting=facultyService.handleRetrieveStaffMeeting(facultyId);
+	public void handleStaffMeeting(String departmentName1) {
+
+		List<StaffMeetingModel> staffMeeting=facultyService.handleRetrieveStaffMeeting(departmentName1);
 		facultyView.showStaffMeetingDetails(staffMeeting);
-		
+		 
 	}
 
 	public void handleUploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
@@ -45,7 +47,12 @@ public class FacultyController {
 	}
 
 	public void handleDownloadAssignments(int fileId) {
-		// TODO Auto-generated method stub
+		
+	}
+	
+	public void retrieveExaminationSchedule(String departmentName) {
+		List<ExamScheduleModel> faculty=facultyService.handleRetrieveExamintionSchedule(departmentName);
+		facultyView.showExamSchedule(faculty);
 		
 	}
 	
