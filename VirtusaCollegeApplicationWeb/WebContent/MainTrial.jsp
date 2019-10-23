@@ -9,7 +9,7 @@ body {font-family: Arial;}
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: black;
+    background-color: grey;
     color:smokewhite;
 }
 
@@ -47,7 +47,7 @@ body {font-family: Arial;}
                 margin-top: 30px;
                 background-image: url("back.jpg");
                 background-size: 1520px;
-                color: whitesmoke;
+                color: black;
             }
              .btn-login
             {
