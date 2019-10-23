@@ -1,11 +1,14 @@
 package com.virtusa.controller;
 
+
 import com.virtusa.entities.UploadDownloadAssignments;
-import com.virtusa.helper.FactoryStudentDAO;
+import com.virtusa.helper.FactoryStudentDB;
 import com.virtusa.model.StudentModel;
 import com.virtusa.model.UploadDownloadAssignmentsModel;
 import com.virtusa.service.StudentService;
 import com.virtusa.view.StudentView;
+
+// log.info = Logger.getLogger(StudentController.class.getName());
 
 public class StudentController {
 	private StudentService studentService;
@@ -13,7 +16,7 @@ public class StudentController {
 	
 	
 	public StudentController() {
-		this.studentService=FactoryStudentDAO.createStudentService();
+		this.studentService=FactoryStudentDB.createStudentService();
 	}        
 // 12.10.19
 	public void retrieveClassSchedule(String departmentName) {
@@ -22,43 +25,36 @@ public class StudentController {
 		studentView.showClassSchedule(students);
 	}
 
-	public void retrieveExaminationSchedule() {
+	public void retrieveExaminationSchedule(String departmentName) {
+		StudentModel students=studentService.handleRetrieveExamintionSchedule(departmentName);
+		studentView.showExamSchedule(students);
 
 		
 	}
 
-	public void retrieveResults() {
-
+	public void retrieveResults(int studentId) {
+		StudentModel students=studentService.handleRetrieveResults(studentId);
+		studentView.showResults(students);
 		
 	}
 
 	
 
 	public void retrievePlacementCalender() {
-
+		StudentModel students=studentService.handleRetrievePlacementCalender();
+		System.out.println(students);
+		studentView.showPlacementCalender(students);
 	}
 
-	public void retrieveGeneralExams() {
+	
 
-		
-	}
-	/*public void uploadAssignments(String path) {
-		// TODO Auto-generated method stub
-		String result = studentService.handleUploadAssignments(path);
-		System.out.println("upload controller");
-		if(result.contentEquals("success"))
-			studentView.uploadSuccess();
-		else
-			studentView.uploadUnsuccessful();
-	}*/
 	public void downloadAssignments() {
 		// TODO Auto-generated method stub
 		
 	}
-	public void uploadAssignments(UploadDownloadAssignmentsModel uploadDownloadAssignmentsModel) {
+	public void uploadAssignments(String path) {
 		// TODO Auto-generated method stub
-		String result = studentService.handleUploadAssignments(uploadDownloadAssignmentsModel);
-		System.out.println("upload controller");
+		String result = studentService.handleUploadAssignments(path);
 		if(result.contentEquals("success"))
 			studentView.uploadSuccess();
 		else

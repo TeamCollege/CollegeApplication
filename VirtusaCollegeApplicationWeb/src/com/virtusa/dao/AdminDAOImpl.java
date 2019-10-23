@@ -130,7 +130,7 @@ public class AdminDAOImpl implements AdminDAO
 			student.setTenthPercentage(resultSet.getDouble("tenth_percentage"));
 			student.setInterPercentage(resultSet.getDouble("inter_percentage"));
 			student.setDepartmentName(resultSet.getString("department_name"));
-			student.setAadharNUmber(resultSet.getString("aadhar_number"));
+			//student.setAadharNUmber(resultSet.getString("aadhar_number"));
 			studentList.add(student);
 			
 		}
@@ -232,8 +232,15 @@ public class AdminDAOImpl implements AdminDAO
 		PreparedStatement preparedStatement=
 				connection.prepareStatement("delete from events where event_id=?");
 		preparedStatement.setInt(1, eventId);
-		preparedStatement.executeUpdate();
-		return true;
+		int rows = preparedStatement.executeUpdate();
+		if(rows>0) {
+			System.out.println("Events data is deleted Successfully");
+			return true;}
+			
+		else {
+			System.out.println("Events data is not delete Successfully");
+			return false;
+		}     
 	}
 
 	@Override

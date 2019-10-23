@@ -56,8 +56,8 @@ public class AdminController
 	
 	public void addEventsController(int id, String name, String date, String location)
 	{
-		adminService.addEventsService(id, name, date, location);
-		
+		//adminService.addEventsService(name, date, location);
+		 
 	}
 	
 	public void deleteEventsController(int eventId)

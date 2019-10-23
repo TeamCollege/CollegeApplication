@@ -117,7 +117,7 @@ public class ApplicantView
 		
 		LocalDate dateOfBirth=LocalDate.of(year, month, dayOfMonth);
 						
-		
+		 
 		//System.out.print("Course Name: ");
 		//String courseName=scanner.next();
 		

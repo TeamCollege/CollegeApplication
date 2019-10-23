@@ -14,8 +14,8 @@ public interface AdminService
 	public void deleteFacultyService(int facultyId);
 	public void updateFacultyService(String phoneNumber, int id);
 	public void viewFacultyService(int facultyId2);
-	public void addEventsService(int id, String name, String date, String location);
-	public void deleteEventsService(int eventId);
+	public boolean addEventsService(int id, String name, String date, String location);
+	public boolean deleteEventsService(int eventId);
 	public void addPlacementsService(int id, String companyName, String date, double percentage);
 	public void deletePlacementsService(int placementId);
 	public void addDepartmentService(int id, String name);

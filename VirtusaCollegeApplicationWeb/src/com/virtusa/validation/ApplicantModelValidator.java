@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.virtusa.helper.FactoryApplicantService;
 import com.virtusa.model.ApplicantModel;
+import com.virtusa.service.ApplicantService;
 
 public class ApplicantModelValidator {
 
@@ -26,6 +28,18 @@ public boolean validate(ApplicantModel model) {
 			result=true;
 		return result;
 	}        
+	 
+	public boolean emailExists(String email) {
+		ApplicantService applicantService=FactoryApplicantService.createApplicantService();
+		List<ApplicantModel> applicantModelList=applicantService.retrieveApplicants();
+		for(ApplicantModel applicantModel:applicantModelList) {
+			
+			if(applicantModel.getEmail().contentEquals(email)) {
+				return true;
+			}
+		}
+		return false;
+	}
       
 	public boolean validString(String val) {
 	
